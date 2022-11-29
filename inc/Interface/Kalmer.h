@@ -3,8 +3,13 @@
 #include "Eigen/Core"
 #include "Define/basic_type.h"
 #include "Define/config.h"
+#include <memory>
 
 class KalmImpl;
+
+class KalmImplKf;
+
+class KalmImplUkf;
 
 class Kalmer
 {
@@ -16,6 +21,8 @@ public:
     RC init(cf_ic &&);
     RC predict();
     RC update();
+private:
+    std::shared_ptr<KalmImpl> sp_kalman_impl_;
 };
 
 Kalmer::Kalmer(/* args */)
