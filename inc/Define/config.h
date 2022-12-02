@@ -19,4 +19,19 @@ typedef struct init_config_st{
 
 } cf_ic;
 
+typedef struct kalm_state_st{
+    Eigen::VectorXf v_state_;
+    Eigen::VectorXf v_measu_;
+    Eigen::MatrixXf m_F_;
+    Eigen::MatrixXf m_H_;
+    Eigen::MatrixXf m_P_;
+    Eigen::MatrixXf m_Q_;
+    Eigen::MatrixXf m_R_;
+    Eigen::MatrixXf m_K_;
+    kalm_state_st(cf_ic &&_ic) : v_state_(_ic.stt_size_), v_measu_(_ic.msu_size_),
+                                 m_H_(_ic.msu_size_, _ic.stt_size_), m_P_(_ic.stt_size_, _ic.stt_size_),
+                                 m_Q_(_ic.stt_size_, _ic.stt_size_), m_R_(_ic.msu_size_, _ic.msu_size_),
+                                 m_K_(_ic.stt_size_, _ic.msu_size_) {}
+} km_s;
+
 #endif // __WORKSPACE_KALMANFILTER_INC_DEFINE_CONFIG_H_
