@@ -16,10 +16,10 @@ typedef float float32_t; // 单精度浮点数
 
 typedef double float64_t; // 双精度浮点数
 
-enum return_code
+typedef enum return_code
 {
     RETURN_OK = 0,
     RETURN_ERROR = 1
-};
+}RC;
 
 #endif // __WORKSPACE_KALMANFILTER_INC_DEFINE_BASIC_TYPE_H_

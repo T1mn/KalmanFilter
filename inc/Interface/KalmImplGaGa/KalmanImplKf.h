@@ -4,6 +4,7 @@
 
 class KalmImplKf : public KalmImpl
 {
+public:
     KalmImplKf(cf_ic &&_init_config) : KalmImpl(std::move(_init_config)) {}
     virtual RC predict()
     {
